@@ -1,0 +1,39 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "mat-menu-triangle": {
+      "projectType": "library",
+      "root": "projects/mat-menu-triangle",
+      "sourceRoot": "projects/mat-menu-triangle/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/mat-menu-triangle/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/mat-menu-triangle/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/mat-menu-triangle/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/mat-menu-triangle/src/test.ts",
+            "tsConfig": "projects/mat-menu-triangle/tsconfig.spec.json",
+            "karmaConfig": "projects/mat-menu-triangle/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "mat-menu-triangle"
+}
